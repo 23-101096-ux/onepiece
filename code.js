@@ -1,15 +1,10 @@
-
-// Select character function (can be called inline)
+// ---------------- CHARACTER SELECTION ----------------
 function selectCharacter(characterId) {
-    const character = characters.find(function(c) {
-        return c.id === characterId;
-    });
-    
+    const character = characters.find(c => c.id === characterId);
+
     if (character) {
-        console.log('Selecting character:', character.name);
         try {
             localStorage.setItem('selectedCharacter', JSON.stringify(character));
-            console.log('Saved to localStorage successfully');
         } catch (error) {
             console.error('Error saving to localStorage:', error);
         }
@@ -19,7 +14,7 @@ function selectCharacter(characterId) {
     }
 }
 
-// Random facts
+// ---------------- RANDOM FACTS ----------------
 const facts = [
     'One Piece has over 1100 episodes!',
     'Luffy\'s bounty is 3 billion berries!',
@@ -29,82 +24,46 @@ const facts = [
     'Oda plans the story years in advance'
 ];
 
-// Show random fact
 function showRandomFact() {
     const factElement = document.getElementById('factText');
     if (factElement) {
-        const randomFact = facts[Math.floor(Math.random() * facts.length)];
-        factElement.textContent = randomFact;
+        factElement.textContent = facts[Math.floor(Math.random() * facts.length)];
     }
 }
 
 function closeFact() {
     const factBox = document.getElementById('randomFact');
-    if (factBox) {
-        factBox.style.display = 'none';
-    }
+    if (factBox) factBox.style.display = 'none';
 }
 
-// Go back to home function
+// ---------------- GO HOME ----------------
 function goHome() {
-    // Clear localStorage when going home
-    try {
-        localStorage.removeItem('selectedCharacter');
-    } catch (e) {
-        console.log('localStorage not available');
-    }
+    localStorage.removeItem('selectedCharacter');
     window.location.href = 'index.html';
 }
 
-// Load character data on character page
+// ---------------- LOAD CHARACTER PAGE ----------------
 function loadCharacter() {
     try {
-        const characterDataStored = localStorage.getItem('selectedCharacter');
-        
-        if (!characterDataStored) {
+        const stored = localStorage.getItem('selectedCharacter');
+        if (!stored) {
             window.location.href = 'index.html';
             return;
         }
 
-        const character = JSON.parse(characterDataStored);
+        const character = JSON.parse(stored);
 
-        // Set hero background class for gradient
-        const heroElement = document.getElementById('characterHero');
-        if (heroElement) {
-            heroElement.classList.add(character.id);
-        }
-
-        // Set character image
-        const imgElement = document.getElementById('characterImg');
-        if (imgElement) {
-            imgElement.src = character.image;
-            imgElement.alt = character.name;
-        }
-
-        // Set character info
-        const nameElement = document.getElementById('characterName');
-        if (nameElement) nameElement.textContent = character.name;
-
-        const roleElement = document.getElementById('characterRole');
-        if (roleElement) roleElement.textContent = character.role;
-
-        const descElement = document.getElementById('characterDescription');
-        if (descElement) descElement.textContent = character.description;
-        
-        const actorElement = document.getElementById('characterActor');
-        if (actorElement) actorElement.textContent = character.actor;
-
-        const aboutNameElement = document.getElementById('aboutName');
-        if (aboutNameElement) aboutNameElement.textContent = character.name;
-
-        const aboutTextElement = document.getElementById('aboutText');
-        if (aboutTextElement) aboutTextElement.textContent = character.bio;
-
-        const fightingStyleElement = document.getElementById('fightingStyle');
-        if (fightingStyleElement) fightingStyleElement.textContent = character.fightingStyle;
-
-        const dreamElement = document.getElementById('dream');
-        if (dreamElement) dreamElement.textContent = character.dream;
+        document.getElementById('characterHero')?.classList.add(character.id);
+        document.getElementById('characterImg').src = character.image;
+        document.getElementById('characterImg').alt = character.name;
+        document.getElementById('characterName').textContent = character.name;
+        document.getElementById('characterRole').textContent = character.role;
+        document.getElementById('characterDescription').textContent = character.description;
+        document.getElementById('characterActor').textContent = character.actor;
+        document.getElementById('aboutName').textContent = character.name;
+        document.getElementById('aboutText').textContent = character.bio;
+        document.getElementById('fightingStyle').textContent = character.fightingStyle;
+        document.getElementById('dream').textContent = character.dream;
 
         document.title = `${character.name} - ONE PIECE`;
 
@@ -114,62 +73,112 @@ function loadCharacter() {
     }
 }
 
-// Initialize everything when page loads
+// ---------------- PAGE INITIALIZATION ----------------
 window.addEventListener('load', function() {
-    
-    // Smooth scroll for navigation
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(anchor => {
+
+    // Smooth scroll
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    // Character click handler for home page
-    const characterCards = document.querySelectorAll('.character-card');
-    
-    characterCards.forEach(function(card) {
+    // Character click events (home page)
+    document.querySelectorAll('.character-card').forEach(card => {
         card.addEventListener('click', function(e) {
             e.preventDefault();
+
             const characterId = this.getAttribute('data-character');
-            
-            const character = characters.find(function(c) {
-                return c.id === characterId;
-            });
-            
+            const character = characters.find(c => c.id === characterId);
+
             if (character) {
-                console.log('Character clicked:', character.name);
-                try {
-                    localStorage.setItem('selectedCharacter', JSON.stringify(character));
-                    console.log('Character data saved to localStorage');
-                } catch (error) {
-                    console.error('localStorage error:', error);
-                }
-                
-                // Navigate to character page
-                setTimeout(function() {
-                    window.location.href = 'character.html';
-                }, 100);
-            } else {
-                console.error('Character not found:', characterId);
+                localStorage.setItem('selectedCharacter', JSON.stringify(character));
+                setTimeout(() => window.location.href = 'character.html', 100);
             }
         });
     });
 
-    // Initialize random fact if on home page
+    // Show random fact only on home page
     if (document.getElementById('randomFact')) {
         showRandomFact();
     }
 
-    // Load character if on character page
+    // Load character page
     if (document.getElementById('characterHero')) {
         loadCharacter();
     }
+
+    // PRELOADER ONLY HIDES (NO REDIRECT)
+    setTimeout(() => {
+        const preloader = document.getElementById("preloader");
+        if (preloader) preloader.style.display = "none";
+    }, 3000);
 });
+
+// ---------------- CART ----------------
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(id) {
+    const cart = getCart();
+    cart.push(id);
+    saveCart(cart);
+}
+
+function removeFromCart(id) {
+    let cart = getCart().filter(item => item !== id);
+    saveCart(cart);
+    if (cart.length === 0) alert("Cart is empty");
+}
+
+document.querySelectorAll(".add-cart").forEach(btn => {
+    btn.addEventListener("click", e => {
+        addToCart(e.target.parentElement.dataset.id);
+    });
+});
+
+// ---------------- LOGIN ----------------
+function login(email, password) {
+    const error = document.getElementById("loginError");
+
+    if (email === "student@eui.edu.eg" && password === "123456") {
+        localStorage.setItem("user", JSON.stringify({
+            name: "Student",
+            email
+        }));
+        window.location.href = "index.html"; // << YOU ASKED FOR THIS
+    } else {
+        error.textContent = "Invalid email or password";
+    }
+}
+
+const form = document.getElementById("loginForm");
+if (form) {
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        login(
+            document.getElementById("email").value,
+            document.getElementById("password").value
+        );
+    });
+}
+
+// ---------------- PROFILE ----------------
+if (window.location.pathname.includes("profile.html")) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("profileName").textContent = user.name;
+        document.getElementById("profileEmail").textContent = user.email;
+    }
+}
