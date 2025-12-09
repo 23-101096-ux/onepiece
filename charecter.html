@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character - ONE PIECE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☠️</text></svg>">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/image 4.png" alt="One Piece Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="javascript:void(0)" onclick="goHome()">Information</a></li>
+            <li><a href="javascript:void(0)" onclick="goHome()">Characters</a></li>
+            <li><a href="javascript:void(0)" onclick="goHome()">Episodes</a></li>
+            <li><a href="javascript:void(0)" onclick="goHome()">Merch</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-hero" id="characterHero">
+        <div class="character-image">
+            <img id="characterImg" src="" alt="Character">
+        </div>
+        <div class="character-info">
+            <h1 class="character-name" id="characterName">Loading...</h1>
+            <div class="character-role" id="characterRole">...</div>
+            <p class="character-description" id="characterDescription">Loading character information...</p>
+            <p class="character-actor">
+                <strong>Voice Actor:</strong> <span id="characterActor">...</span>
+            </p>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <div class="about-content">
+            <h2>About <span id="aboutName">Character</span></h2>
+            <p id="aboutText">Loading biography...</p>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">⚔️</div>
+                <div class="stat-label">Fighting Style</div>
+                <div class="stat-value" id="fightingStyle">...</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-label">Dream</div>
+                <div class="stat-value" id="dream">...</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-label">Status</div>
+                <div class="stat-value" id="status">Active</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <h3>ONE PIECE</h3>
+            <p>One Piece is a legendary anime series that began airing on October 20, 1999, and continues to inspire millions around the world with its story of adventure, freedom, and friendship.</p>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="assets/mdi_instagram.png" alt=""></a>
+                <a href="#"><img src="assets/basil_gmail-outline.png" alt=""></a>
+                <a href="#"><img src="assets/lucide_twitter.png" alt=""></a>
+                <a href="#"><img src="assets/mingcute_facebook-line.png" alt=""></a>
+            </div>
+            <p><img src="assets/line-md_phone.png" alt=""> 02012577774</p>
+        </div>
+    </footer>
+
+    <button class="back-button" onclick="goHome()">← Back to Home</button>
+
+    <script src="code.js"></script>
+        <script src="storage.js "></script>
+</body>
+</html>
