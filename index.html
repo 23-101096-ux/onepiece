@@ -8,7 +8,149 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☠️</text></svg>">
 </head>
 
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/image 4.png" alt="One Piece Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Information</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="#episodes">Episodes</a></li>
+            <li><a href="#merch">Merch</a></li>
+        </ul>
+    </nav>
 
+    <div class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-character">
+            <img src="assets/image 7.png" alt="Luffy">
+        </div>
+        <div class="hero-content">
+            <h1>ONE PIECE</h1>
+            <div class="stars">★★★★★</div>
+            <p>One Piece is a legendary Japanese anime series that follows the journey of Monkey D. Luffy, a young pirate with the power to stretch his body like rubber after eating a Devil Fruit. Luffy sets out on a quest to find the legendary treasure One Piece and become the King of the Pirates. Luffy sails across dangerous seas in search of the greatest treasure.</p>
+            <button class="watch-btn">watch</button>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <h2>The Journey to Become King of the Pirates</h2>
+        <p>One Piece tells the story of Monkey D. Luffy, a fearless young boy who gains rubber-like powers after eating a magical Devil Fruit. Inspired by the legendary pirate Red-Haired Shanks, Luffy sets out to become the King of the Pirates. Along his journey, he builds a loyal crew called the Straw Hat Pirates, including powerful fighters and brilliant minds, and together they face dangerous enemies, powerful warlords, and corrupt forces while protecting their dreams, freedom, and friendship in a world full of mystery and adventure.</p>
+    </section>
+
+    <section class="episodes-section" id="episodes">
+        <div class="section-header">
+            <h2>New Episodes</h2>
+            <button class="see-all-btn">See all episodes</button>
+        </div>
+        <div class="episodes-grid">
+            <div class="episode-card">
+                <img src="assets/Screenshot 2025-12-05 at 8.58.14 PM 1.png" alt="Episode">
+                <div class="episode-info">
+                    <span class="episode-badge">5 Min ●</span>
+                    <h3>Season 21, Episode 1098</h3>
+                    <p>April 14, 2024</p>
+                </div>
+            </div>
+            <div class="episode-card">
+                <img src="assets/Screenshot 2025-12-05 at 8.59.02 PM 2.png" alt="Episode">
+                <div class="episode-info">
+                    <span class="episode-badge">5 Min ●</span>
+                    <h3>Season 21, Episode 1099</h3>
+                    <p>April 21, 2024</p>
+                </div>
+            </div>
+            <div class="episode-card">
+                <img src="assets/Screenshot 2025-12-05 at 8.59.16 PM 1.png" alt="Episode">
+                <div class="episode-info">
+                    <span class="episode-badge">5 Min ●</span>
+                    <h3>Season 20, Episode 1050</h3>
+                    <p>April 30, 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="characters-section" id="characters">
+        <h2>Characters</h2>
+        <div class="characters-grid">
+            <div class="character-card" data-character="zoro" onclick="selectCharacter('zoro')">
+                <img src="assets/watermarked-c6ededac-fd8e-4ac2-b4ea-abe2af242e53.jpg" alt="Zoro">
+                <div class="character-name">Zoro</div>
+            </div>
+            <div class="character-card" data-character="luffy" onclick="selectCharacter('luffy')">
+                <img src="assets/watermarked-2d2b5e80-f38b-4eef-b1b8-67ec4cdcb1f8.jpg" alt="Luffy">
+                <div class="character-name">Luffy</div>
+            </div>
+            <div class="character-card" data-character="boa" onclick="selectCharacter('boa')">
+                <img src="assets/watermarked-b825b525-acfe-4f27-a0d3-68bb5b143745.jpg" alt="Boa">
+                <div class="character-name">Boa</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="most-watched-section">
+        <div class="most-watched-image">
+            <img src="assets/Group 12.png" alt="Most Watched">
+        </div>
+        <div class="most-watched-content">
+            <h2>Most Watched</h2>
+            <h3>1071: Luffy's peak - Attained</h3>
+            <p>He builds a loyal crew called the Straw Hat Pirates, including powerful fighters and brilliant minds, and together they face dangerous enemies, powerful warlords, and corrupt forces while protecting their dreams, freedom, and friendship in a world full of mystery and adventure.</p>
+            <div class="button-group">
+                <button class="btn-black">+ Watch List</button>
+                <button class="btn-black">▶ Watch up</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="merch-section" id="merch">
+        <h2>Merch Products</h2>
+        <div class="merch-grid">
+            <div class="merch-card">
+                <img src="assets/Group 13.png" alt="Zoro Figure">
+                <h2>Roronoa Zoro</h2>
+            </div>
+            <div class="merch-card">
+                <img src="assets/Group 14.png" alt="Figure 2">
+                <h2>Monkey D. Luffy 0.2</h2>
+            </div>
+            <div class="merch-card">
+                <img src="assets/Group 15.png" alt="Boa Figure">
+                <h2>Boa Hancock</h2>
+            </div>
+            <div class="merch-card">
+                <img src="assets/Group 16.png" alt="Luffy Figure">
+                <h2>Monkey D. Luffy</h2>
+            </div>
+        </div>
+    </section>
+    
+    <div class="line"></div>
+    
+    <footer>
+        <div class="footer-info">
+            <h3>ONE PIECE</h3>
+            <p>One Piece is a legendary anime series that began airing on October 20, 1999, and continues to inspire millions around the world with its story of adventure, freedom, and friendship. Follow Luffy and the Straw Hat Pirates as they chase their dreams across the seas.</p>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="assets/mdi_instagram.png" alt=""></a>
+                <a href="#"><img src="assets/basil_gmail-outline.png" alt=""></a>
+                <a href="#"><img src="assets/lucide_twitter.png" alt=""></a>
+                <a href="#"><img src="assets/mingcute_facebook-line.png" alt=""></a>
+            </div>
+            <p><img src="assets/line-md_phone.png" alt=""> 02012577774</p>
+        </div>
+    </footer>
+
+    <div class="random-fact" id="randomFact">
+        <button class="close-fact" onclick="closeFact()">✕</button>
+        <h4>Did you know?</h4>
+        <p id="factText"></p>
+    </div>
 
 
 
